@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="Basic">
+  <Parameters>
+    <Parameter id="0" name="columns" type="0">
+      <values>
+        <value>10</value>
+        <value>20</value>
+        <value>30</value>
+        <value>50</value>
+      </values>
+      <basechoices />
+      <invalidValues>
+        <invalidValue>0</invalidValue>
+      </invalidValues>
+    </Parameter>
+    <Parameter id="1" name="is_same_row" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>true</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="3" name="field_string" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>true</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="4" name="field_number" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>false</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="5" name="field_bool" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>false</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="6" name="special_chr" type="1">
+      <values>
+        <value>commas</value>
+        <value>quotes</value>
+        <value>newlines</value>
+        <value>none</value>
+      </values>
+      <basechoices>
+        <basechoice>none</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="7" name="delimiters" type="1">
+      <values>
+        <value>comma</value>
+        <value>tab</value>
+        <value>semicolon</value>
+      </values>
+      <basechoices>
+        <basechoice>comma</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="8" name="empty" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>false</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+    <Parameter id="9" name="dynamic" type="2">
+      <values>
+        <value>true</value>
+        <value>false</value>
+      </values>
+      <basechoices>
+        <basechoice>false</basechoice>
+      </basechoices>
+      <invalidValues />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="!field_string &amp;&amp; !field_number =&gt; field_bool">
+      <Parameters>
+        <Parameter name="field_string" />
+        <Parameter name="field_number" />
+        <Parameter name="field_bool" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="!field_string &amp;&amp; !field_bool =&gt; field_number">
+      <Parameters>
+        <Parameter name="field_string" />
+        <Parameter name="field_bool" />
+        <Parameter name="field_number" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="!field_bool &amp;&amp; !field_number =&gt; field_string">
+      <Parameters>
+        <Parameter name="field_bool" />
+        <Parameter name="field_number" />
+        <Parameter name="field_string" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>10</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>tab</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>10</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>quotes</Value>
+      <Value>semicolon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>10</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>newlines</Value>
+      <Value>comma</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>10</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>none</Value>
+      <Value>tab</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>20</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>semicolon</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>20</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>quotes</Value>
+      <Value>comma</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>20</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>newlines</Value>
+      <Value>tab</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>20</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>none</Value>
+      <Value>semicolon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>30</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>commas</Value>
+      <Value>comma</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>30</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>quotes</Value>
+      <Value>tab</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>30</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>newlines</Value>
+      <Value>semicolon</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>30</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>none</Value>
+      <Value>comma</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>50</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>tab</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>50</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>quotes</Value>
+      <Value>semicolon</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>50</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>newlines</Value>
+      <Value>comma</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>50</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>none</Value>
+      <Value>tab</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="16">
+      <Value>17</Value>
+      <Value>0</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>commas</Value>
+      <Value>tab</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+    </Testcase>
+    <Testcase TCNo="17">
+      <Value>18</Value>
+      <Value>0</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>quotes</Value>
+      <Value>semicolon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="18">
+      <Value>19</Value>
+      <Value>0</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>newlines</Value>
+      <Value>comma</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+    </Testcase>
+    <Testcase TCNo="19">
+      <Value>20</Value>
+      <Value>0</Value>
+      <Value>true</Value>
+      <Value>false</Value>
+      <Value>false</Value>
+      <Value>true</Value>
+      <Value>none</Value>
+      <Value>semicolon</Value>
+      <Value>true</Value>
+      <Value>true</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>COLUMNS</Value>
+    <Value>IS_SAME_ROW</Value>
+    <Value>FIELD_STRING</Value>
+    <Value>FIELD_NUMBER</Value>
+    <Value>FIELD_BOOL</Value>
+    <Value>SPECIAL_CHR</Value>
+    <Value>DELIMITERS</Value>
+    <Value>EMPTY</Value>
+    <Value>DYNAMIC</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.092</ExecutionTime>
+    <MaxDomainSize>4</MaxDomainSize>
+    <MinDomainSize>2</MinDomainSize>
+    <TotalNoOfCombination>251</TotalNoOfCombination>
+    <TotalNoOfTests>20</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
